@@ -209,10 +209,11 @@ function validModalForm() {
 //validation du formulaire + ajout d'un nouveau travail
 function initModalForm() {
     const titleContent = titleInput.value
-    //activation du btn si un des champs n'est pas remplis
+    //activation du btn si l'une des conditions est true
     titleInput.addEventListener('change', () => {
         if (imageInput.files.length === 0 || titleContent.length === 0 || selectedCategory === 0) {
             addWorkBtn.classList.remove('btn-disabled')
+        //si toutes les conditions sont remplies
         } else {
             addWorkBtn.classList.add('btn-disabled')
         }
