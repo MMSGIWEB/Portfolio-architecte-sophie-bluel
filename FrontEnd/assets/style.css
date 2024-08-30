@@ -84,7 +84,7 @@ h1 > span {
 h2{
 	font-family: 'Syne';
 	font-weight: 700;
-	font-size: 30px;
+	font-size: 3em;
 	color: #1D6154
 }
 nav ul {
@@ -104,6 +104,7 @@ li:hover {
 #introduction {
 	display: flex;
 	align-items: center;
+	/* gap: 12em; */
 }
 #introduction figure {
 	flex: 1
@@ -111,19 +112,26 @@ li:hover {
 #introduction img {
 	display: block;
 	margin: auto;
-	width: 80%;
+	width: 100%;
+	position: relative;
+	right: 19em;
 }
 
 #introduction article {
 	flex: 1;
 	max-width: 400px;
+	position: relative;
+	right: 10em;
 }
 #introduction h2 {
 	margin-bottom: 1em;
+	text-wrap: nowrap;
 }
 
 #introduction p {
 	margin-bottom: 0.5em;
+	font-size: 2em;
+	width: 800px;
 }
 
 #portfolio {
