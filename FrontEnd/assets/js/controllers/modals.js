@@ -103,6 +103,7 @@ const addModal = document.getElementById('add_modal')
 
 function handleRemove(workId) {
     return async function (event) {
+        event.preventDefault()
         try {
             await deleteWork(workId)
             document.works = document.works.filter((work) => {
@@ -137,9 +138,13 @@ function initModal() {
     //fermeture de la modale si click en dehors de celle-ci
     const modalBackgd = document.getElementById('my_modal')
     modalBackgd.addEventListener('click', closeModal)
-    const modals = document.querySelector('.modal').addEventListener('click', (event) => {
+    document.getElementById('delete_modal').addEventListener('click', (event) => {
         event.stopPropagation()
     })
+    document.getElementById('add_modal').addEventListener('click', (event) => {
+        event.stopPropagation()
+    })
+
     //flèche retour
     document.querySelector('.fa-arrow-left').addEventListener('click', (e) => {
         const deleteModal = document.getElementById('delete_modal')

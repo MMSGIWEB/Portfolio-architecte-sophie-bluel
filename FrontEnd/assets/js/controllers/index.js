@@ -154,6 +154,8 @@ function adminMode() {
         const ul = document.querySelector('header ul')
         ul.appendChild(login)
 
+        //suppression des btn categories
+        document.querySelector('.filters').classList.add('hidden')
 
         //apparition du bouton modif
         const btnModif = document.querySelector('.modif')
