@@ -24,7 +24,7 @@ export const createWork = async (image, title, category) => {
             // 'Content-Type': 'application/json',
 
             //indique au serveur que le client est autorisé à acceder à la ressource demandée
-            'Authorization': 'Berear ' + token,
+            'Authorization': 'Bearer ' + token,
         },
         body: formData
     })
