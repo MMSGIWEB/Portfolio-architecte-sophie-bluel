@@ -102,7 +102,7 @@ const addModal = document.getElementById('add_modal')
 
 
 function handleRemove(workId) {
-    return async function () {
+    return async function (event) {
         try {
             await deleteWork(workId)
             document.works = document.works.filter((work) => {
@@ -122,6 +122,8 @@ function handleRemove(workId) {
 
 //fonctionnement de certains éléments de la modale
 function initModal() {
+
+
     //ouverture de modale au click du btn modif
     const modifBtn = document.querySelector('.modif')
     modifBtn.addEventListener('click', openModal)
@@ -132,6 +134,12 @@ function initModal() {
     xMark.addEventListener('click', closeModal)
     xMark2.addEventListener('click', closeModal)
 
+    //fermeture de la modale si click en dehors de celle-ci
+    const modalBackgd = document.getElementById('my_modal')
+    modalBackgd.addEventListener('click', closeModal)
+    const modals = document.querySelector('.modal').addEventListener('click', (event) => {
+        event.stopPropagation()
+    })
     //flèche retour
     document.querySelector('.fa-arrow-left').addEventListener('click', (e) => {
         const deleteModal = document.getElementById('delete_modal')
@@ -213,7 +221,7 @@ function initModalForm() {
     titleInput.addEventListener('change', () => {
         if (imageInput.files.length === 0 || titleContent.length === 0 || selectedCategory === 0) {
             addWorkBtn.classList.remove('btn-disabled')
-        //si toutes les conditions sont remplies bouton désactivé
+            //si toutes les conditions sont remplies bouton désactivé
         } else {
             addWorkBtn.classList.add('btn-disabled')
         }
@@ -237,6 +245,7 @@ function initModalForm() {
         console.log(titleContent, selectedImg, selectedCategory)
 
         if (validModalForm()) {
+            event.preventDefault()
             console.log('envoi')
             //envoi de la requête pour l'ajout d'un nouveau travail + récup du résultat
             let result = await createWork(selectedImg, titleContent, selectedCategory)
