@@ -31,6 +31,11 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
+
+.gallery figcaption {
+	font-size: 1.8em;
+}
+
 ol, ul {
 	list-style: none;
 }
@@ -69,14 +74,14 @@ h1{
 	display: flex;
 	flex-direction: column;
 	font-family: 'Syne';
-	font-size: 22px;
+	font-size: 40px;
 	font-weight: 800;
 	color: #B1663C
 }
 
 h1 > span {
 	font-family: 'Work Sans';
-	font-size:10px;
+	font-size: 20px;
 	letter-spacing: 0.1em;
 ;
 }
@@ -91,7 +96,7 @@ nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
-
+	gap: 3em;
 }
 nav li {
 	padding: 0 10px;
@@ -165,16 +170,20 @@ li:hover {
 }
 #contact > * {
 	text-align: center;
-
+	font-size: 2em;
 }
 #contact h2{
 	margin-bottom: 20px;
+	font-size: 3em;
 }
 #contact form {
 	text-align: left;
 	margin-top: 20px;
 	display: flex;
 	flex-direction: column;
+	gap: 0em;
+	box-sizing: border-box;
+	max-width: 800px;
 }
 
 #contact input {
@@ -183,7 +192,13 @@ li:hover {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 	box-sizing: border-box;
+	width: 100%;
 }
+
+#contact #name {
+	height: 3em;
+}
+
 #contact label {
 	margin: 2em 0 1em 0;
 }
@@ -201,6 +216,10 @@ input[type="submit"]{
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+}
+
+#contact_submit {
+	max-width: 400px;
 }
 
 footer nav ul {
@@ -239,7 +258,7 @@ footer li {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 4em;
+	gap: 7em;
 	max-width: 2000px;
 	margin: auto;
 }
@@ -248,16 +267,16 @@ footer li {
 .filters {
 	display: flex;
 	justify-content: center;
-	gap: 1em;
+	gap: 1.7em;
 
 }
 
 .filter_btn {
+	border: 1px solid #1D6154;
 	box-sizing: border-box;
 	border-radius: 60px;
-	border-width: 1.55px;
-	border-color: #1D6154;	;
 	padding: .6em 1.2em;
+	font-size: 2em;
 	color : #1D6154;
 	font-weight: 700;
 	font-family: 'Syne';
@@ -275,6 +294,11 @@ body, .filter_btn {
 a {
 	text-decoration: none;
 	color: #000000;
+
+}
+
+header a {
+	font-size: 1.5em;
 }
 
 * {
@@ -395,6 +419,7 @@ html {
 	gap: .5em;
 	cursor: pointer;
 	align-items: center;
+	font-size: 1.7em;
 }
 
 header a:hover {

@@ -65,7 +65,7 @@ const filters = document.querySelector('.filters');
 
 // une fonction qui crée un élément HTML pour une catégorie
 function createCategoryElement(category) {
-    let button = document.createElement('button');
+    let button = document.createElement('div');
     button.textContent = category.name;
     button.classList.add('filter_btn');
     button.addEventListener('click', () => {
