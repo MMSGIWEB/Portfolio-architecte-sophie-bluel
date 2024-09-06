@@ -11,8 +11,8 @@
 		rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
-	<script type="module" src="assets/js/controllers/index.js" defer></script>
-	<script type="module" src="assets/js/controllers/modals.js" defer></script>
+	<script type="module" src="assets/js/controllers/index.js" ></script>
+	<script type="module" src="assets/js/controllers/modals.js" ></script>
 	<script src="https://kit.fontawesome.com/c0cee63e0a.js" crossorigin="anonymous"></script>
 
 </head>
@@ -91,7 +91,7 @@
 				<input type="submit" value="Envoyer" id="contact_submit">
 			</form>
 		</section>
-		<aside id="my_modal" class="modal_container">
+		<div id="my_modal" class="modal_container">
 			<div id="delete_modal" class="modal">
 				<nav class="delete_header">
 					<i class="fa-solid fa-xmark x1"></i>
@@ -117,7 +117,7 @@
 				</nav>
 				<div class="add_content">
 					<h2 id="modal2_h2">Ajout photo</h2>
-					<form>
+					<form id="form_add_work">
 						<fieldset class="add_container">
 							<div class="img_downloader">
 								<i class="fa-regular fa-image"></i>
@@ -125,28 +125,29 @@
 								<label class="add_btn">+ Ajouter photo</label>
 								<p>jpg, png : 4mo max</p>
 							</div>
-				</fieldset>
-				<fieldset class="field">
-					<label class="first" for="title">Titre</label>
-					<input type="text" id="title" name="title">
-				</fieldset>
-				<fieldset class="field">
-					<label class="second" for="category">Catégorie</label>
-					<select name="category" id="category">
-						<option value="0">...</option>
-						<option value="1">Objets</option>
-						<option value="2">Appartements</option>
-						<option value="3">Hotels & restaurants</option>
-					</select>
-				</fieldset>
-				<hr>
-				<fieldset class="modal2_submit_btn">
-					<input type="submit" name="submit" value="Valider" id="submit_photo_btn" class="btn-disabled">
-				</fieldset>
-				</form>
+						</fieldset>
+						<fieldset class="field">
+							<label class="first" for="title">Titre</label>
+							<input type="text" id="title" name="title">
+						</fieldset>
+						<fieldset class="field">
+							<label class="second" for="category">Catégorie</label>
+							<select name="category" id="category">
+								<option value="0">...</option>
+								<option value="1">Objets</option>
+								<option value="2">Appartements</option>
+								<option value="3">Hotels & restaurants</option>
+							</select>
+						</fieldset>
+						<hr>
+						<fieldset class="modal2_submit_btn">
+							<input type="submit" name="submit" value="Valider" id="submit_photo_btn"
+								class="btn-disabled">
+						</fieldset>
+					</form>
+				</div>
 			</div>
-			</div>
-		</aside>
+		</div>
 	</main>
 	<footer id="footer">
 		<nav>

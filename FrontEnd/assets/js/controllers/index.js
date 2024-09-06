@@ -38,7 +38,7 @@ export function createWorkElement(work) {
 }
 
 // une fonction qui affiche les travaux
-function displayWorks(works) {
+export function displayWorks(works) {
     gallery.innerHTML = '';
     //on itère les éléments du tableau
     works.forEach(work => {

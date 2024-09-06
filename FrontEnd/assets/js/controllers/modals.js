@@ -5,14 +5,28 @@ import {
     deleteWork
 } from '../libs/works.js'
 
-let works = await fetchWork()
-console.log(works)
+import {
+    displayWorks
+} from './index.js'
+
+//Partie de l'ajout d'un nouveau travail
+const addModal = document.getElementById('add_modal')
 
 // fermer la modale
 function closeModal() {
+    //on masque la modale
     const modal = document.querySelector('.modal_container');
     modal.style.display = ""
     modal.classList.add('hidden')
+    //on retourne sur la section galerie de la modale
+    const deleteModal = document.getElementById('delete_modal')
+    deleteModal.style.display = 'flex'
+    addModal.style.display = 'none'
+    //on efface le formulaire
+    const form = document.getElementById('form_add_work')
+    form.reset()
+    //on masque la preview
+    unTogglePreview()
 }
 
 //ouvrir la modale
@@ -57,9 +71,6 @@ function renderModalWork(work) {
 
     return article
 }
-
-//Partie de l'ajout d'un nouveau travail
-const addModal = document.getElementById('add_modal')
 
 // function addWork(image, title, category) {
 
@@ -114,6 +125,7 @@ function handleRemove(workId) {
                 }
             })
             displayModalGallery()
+            displayWorks(document.works)
         }
         catch (error) {
             console.log(error)
@@ -165,6 +177,12 @@ function initModal() {
 function togglePreview() {
     document.querySelector('.img_downloader').classList.add('toggle_hide')
     document.querySelector('.img_preview').classList.add('toggle_show')
+}
+
+//fonction qui masque l'image téléchargée
+function unTogglePreview() {
+    document.querySelector('.img_downloader').classList.remove('toggle_hide')
+    document.querySelector('.img_preview').remove()
 }
 
 const imageInput = document.getElementById('file');
@@ -254,6 +272,10 @@ function initModalForm() {
             console.log('envoi')
             //envoi de la requête pour l'ajout d'un nouveau travail + récup du résultat
             let result = await createWork(selectedImg, titleContent, selectedCategory)
+            document.works.push(result)
+            displayModalGallery()
+            displayWorks(document.works)
+            closeModal()
         } else {
             alert('Veuillez remplir tous les champs !')
         }
