@@ -45,7 +45,7 @@ export const deleteWork = async (_id) => {
         },
     })
 
-    let data = await response.json()
-
-    return data
+    if(response.ok){
+        return true
+    }
 }

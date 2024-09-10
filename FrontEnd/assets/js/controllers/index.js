@@ -38,7 +38,7 @@ export function createWorkElement(work) {
 }
 
 // une fonction qui affiche les travaux
-function displayWorks(works) {
+export function displayWorks(works) {
     gallery.innerHTML = '';
     //on itère les éléments du tableau
     works.forEach(work => {
@@ -65,7 +65,7 @@ const filters = document.querySelector('.filters');
 
 // une fonction qui crée un élément HTML pour une catégorie
 function createCategoryElement(category) {
-    let button = document.createElement('button');
+    let button = document.createElement('div');
     button.textContent = category.name;
     button.classList.add('filter_btn');
     button.addEventListener('click', () => {
@@ -154,6 +154,8 @@ function adminMode() {
         const ul = document.querySelector('header ul')
         ul.appendChild(login)
 
+        //suppression des btn categories
+        document.querySelector('.filters').classList.add('hidden')
 
         //apparition du bouton modif
         const btnModif = document.querySelector('.modif')

@@ -5,14 +5,28 @@ import {
     deleteWork
 } from '../libs/works.js'
 
-let works = await fetchWork()
-console.log(works)
+import {
+    displayWorks
+} from './index.js'
+
+//Partie de l'ajout d'un nouveau travail
+const addModal = document.getElementById('add_modal')
 
 // fermer la modale
 function closeModal() {
+    //on masque la modale
     const modal = document.querySelector('.modal_container');
     modal.style.display = ""
     modal.classList.add('hidden')
+    //on retourne sur la section galerie de la modale
+    const deleteModal = document.getElementById('delete_modal')
+    deleteModal.style.display = 'flex'
+    addModal.style.display = 'none'
+    //on efface le formulaire
+    const form = document.getElementById('form_add_work')
+    form.reset()
+    //on masque la preview
+    unTogglePreview()
 }
 
 //ouvrir la modale
@@ -58,9 +72,6 @@ function renderModalWork(work) {
     return article
 }
 
-//Partie de l'ajout d'un nouveau travail
-const addModal = document.getElementById('add_modal')
-
 // function addWork(image, title, category) {
 
 //     try {
@@ -102,7 +113,8 @@ const addModal = document.getElementById('add_modal')
 
 
 function handleRemove(workId) {
-    return async function () {
+    return async function (event) {
+        event.preventDefault()
         try {
             await deleteWork(workId)
             document.works = document.works.filter((work) => {
@@ -113,6 +125,7 @@ function handleRemove(workId) {
                 }
             })
             displayModalGallery()
+            displayWorks(document.works)
         }
         catch (error) {
             console.log(error)
@@ -122,6 +135,8 @@ function handleRemove(workId) {
 
 //fonctionnement de certains éléments de la modale
 function initModal() {
+
+
     //ouverture de modale au click du btn modif
     const modifBtn = document.querySelector('.modif')
     modifBtn.addEventListener('click', openModal)
@@ -131,6 +146,16 @@ function initModal() {
     const xMark2 = document.querySelector('.x2')
     xMark.addEventListener('click', closeModal)
     xMark2.addEventListener('click', closeModal)
+
+    //fermeture de la modale si click en dehors de celle-ci
+    const modalBackgd = document.getElementById('my_modal')
+    modalBackgd.addEventListener('click', closeModal)
+    document.getElementById('delete_modal').addEventListener('click', (event) => {
+        event.stopPropagation()
+    })
+    document.getElementById('add_modal').addEventListener('click', (event) => {
+        event.stopPropagation()
+    })
 
     //flèche retour
     document.querySelector('.fa-arrow-left').addEventListener('click', (e) => {
@@ -152,6 +177,12 @@ function initModal() {
 function togglePreview() {
     document.querySelector('.img_downloader').classList.add('toggle_hide')
     document.querySelector('.img_preview').classList.add('toggle_show')
+}
+
+//fonction qui masque l'image téléchargée
+function unTogglePreview() {
+    document.querySelector('.img_downloader').classList.remove('toggle_hide')
+    document.querySelector('.img_preview').remove()
 }
 
 const imageInput = document.getElementById('file');
@@ -213,7 +244,7 @@ function initModalForm() {
     titleInput.addEventListener('change', () => {
         if (imageInput.files.length === 0 || titleContent.length === 0 || selectedCategory === 0) {
             addWorkBtn.classList.remove('btn-disabled')
-        //si toutes les conditions sont remplies bouton désactivé
+            //si toutes les conditions sont remplies bouton désactivé
         } else {
             addWorkBtn.classList.add('btn-disabled')
         }
@@ -237,9 +268,14 @@ function initModalForm() {
         console.log(titleContent, selectedImg, selectedCategory)
 
         if (validModalForm()) {
+            event.preventDefault()
             console.log('envoi')
             //envoi de la requête pour l'ajout d'un nouveau travail + récup du résultat
             let result = await createWork(selectedImg, titleContent, selectedCategory)
+            document.works.push(result)
+            displayModalGallery()
+            displayWorks(document.works)
+            closeModal()
         } else {
             alert('Veuillez remplir tous les champs !')
         }
