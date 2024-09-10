@@ -281,6 +281,7 @@ footer li {
 	color : #1D6154;
 	font-weight: 700;
 	font-family: 'Syne';
+	cursor: pointer;
 }
 
 body, .filter_btn {
