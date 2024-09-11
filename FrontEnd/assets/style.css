@@ -312,6 +312,10 @@ header a {
 	cursor: pointer;	
 }
 
+.logout div {
+	font-size: 1.5em;
+}
+
 .main_login_container {
 	display: flex;
 	flex-direction: column;
