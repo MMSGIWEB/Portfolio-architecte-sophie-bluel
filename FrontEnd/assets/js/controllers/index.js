@@ -105,7 +105,7 @@ function createCategoriesButtons() {
 async function initCategories() {
     //dans ce tableau
     document.categories = [
-        //qui a pour obk=jet initial :
+        //qui a pour objet initial :
         { name: 'Tout', id: 0 },
         ...await fetchCategories()
     ]
