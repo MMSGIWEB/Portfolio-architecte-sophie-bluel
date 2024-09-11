@@ -40,7 +40,7 @@ export const deleteWork = async (_id) => {
     let response = await fetch(`http://localhost:5678/api/works/${_id}`, {
         method: 'DELETE',
         headers: {
-            //indique au serveur que le client est autorisé à acceder à la ressource demandée
+            //indique au serveur que le client est autorisé à accéder à la ressource demandée
             'Authorization': 'Berear ' + token,
         },
     })
