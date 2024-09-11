@@ -224,7 +224,6 @@ const categoryInput = document.getElementById('category')
 function validModalForm() {
 
     const titleContent = titleInput.value
-
     const selectedCategory = Number(categoryInput.value)
     console.log('imageInput.files', imageInput.files)
     console.log('titleContent.length', titleContent.length)
