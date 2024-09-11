@@ -242,6 +242,7 @@ function initModalForm() {
     //activation du btn si l'une des conditions est true bouton activé
     titleInput.addEventListener('change', () => {
         if (imageInput.files.length === 0 || titleContent.length === 0 || selectedCategory === 0) {
+            //btn désactivé
             addWorkBtn.classList.remove('btn-disabled')
             //si toutes les conditions sont remplies bouton désactivé
         } else {
