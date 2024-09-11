@@ -273,6 +273,7 @@ function initModalForm() {
             console.log('envoi')
             //envoi de la requête pour l'ajout d'un nouveau travail + récup du résultat
             let result = await createWork(selectedImg, titleContent, selectedCategory)
+            //ajoute un nouveau travail à la fin du tableau works
             document.works.push(result)
             displayModalGallery()
             displayWorks(document.works)
