@@ -27,6 +27,9 @@ function closeModal() {
     form.reset()
     //on masque la preview
     unTogglePreview()
+    //on désative la couleur du btn
+    const addWorkBtn = document.getElementById('submit_photo_btn')
+    addWorkBtn.classList.add('btn-disabled')
 }
 
 //ouvrir la modale
