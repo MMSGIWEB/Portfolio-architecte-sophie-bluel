@@ -13,14 +13,14 @@ MISSON :
 
 Rendre dynamique le portfolio de Sophie Bluel en utilisant JavaScript.
 
-OBJECTIFS
+OBJECTIFS :
 
 Récupérer dynamiquement les données des travaux via une API.
 Permettre de trier les projets par catégorie dans la galerie.
 Lui permettre de se connecter pour éditer son site.
 Créer la modale lui permettant de gérer ses projets : ajout, suppression de projets.
 
-TECHNOLOGIES
+TECHNOLOGIES :
 
 Recommandées : HTML / CSS / JavaScript**
 API
